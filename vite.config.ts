@@ -5,7 +5,6 @@ import path from "path";
 export default defineConfig(async ({ mode }) => {
   const plugins = [react()];
 
-  // Dev-плагин lovable-tagger
   if (mode === "development") {
     try {
       const mod = await import("lovable-tagger");
@@ -18,7 +17,7 @@ export default defineConfig(async ({ mode }) => {
   }
 
   return {
-    base: "/",
+    base: "./", // Измените это с "/" на "./"
     publicDir: "public",
     resolve: { 
       alias: { 
@@ -41,15 +40,7 @@ export default defineConfig(async ({ mode }) => {
       outDir: "dist",
       rollupOptions: {
         input: path.resolve(__dirname, "index.html"),
-        output: {
-          manualChunks: undefined,
-          inlineDynamicImports: false
-        }
       }
-    },
-    // Добавьте это для Vercel
-    optimizeDeps: {
-      include: ['react', 'react-dom']
     }
   };
 });
