@@ -18,18 +18,38 @@ export default defineConfig(async ({ mode }) => {
   }
 
   return {
-    base: "/", // важно для Vercel
+    base: "/",
     publicDir: "public",
-    resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
+    resolve: { 
+      alias: { 
+        "@": path.resolve(__dirname, "./src") 
+      } 
+    },
     server: {
       host: "::",
       port: 5173,
-      proxy: { "/api": { target: "http://localhost:3001", changeOrigin: true, secure: false } }
+      proxy: { 
+        "/api": { 
+          target: "http://localhost:3001", 
+          changeOrigin: true, 
+          secure: false 
+        } 
+      }
     },
     plugins,
     build: {
       outDir: "dist",
-      rollupOptions: { input: path.resolve(__dirname, "index.html") }
+      rollupOptions: {
+        input: path.resolve(__dirname, "index.html"),
+        output: {
+          manualChunks: undefined,
+          inlineDynamicImports: false
+        }
+      }
+    },
+    // Добавьте это для Vercel
+    optimizeDeps: {
+      include: ['react', 'react-dom']
     }
   };
 });

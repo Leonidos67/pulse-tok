@@ -10,7 +10,8 @@
     "dev:all": "concurrently \"npm run dev\" \"npm run dev:server\"",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "vercel-build": "vite build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
