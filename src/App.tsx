@@ -11,6 +11,10 @@ import Insights from "./pages/Insights";
 import Share from "./pages/Share";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
+import AuthCallback from "./pages/AuthCallback";
+import AuthSuccess from "./pages/AuthSuccess";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +27,10 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/auth/callback" element={<AuthCallback />} />
+          <Route path="/auth/success" element={<AuthSuccess />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/insights" element={<Insights />} />
