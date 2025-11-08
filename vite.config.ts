@@ -2,16 +2,16 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-export default defineConfig(({ mode }) => {
+// https://vitejs.dev/config/
+export default defineConfig(async ({ mode }) => {
   const plugins = [react()];
 
-  // Подключаем componentTagger только локально (mode === 'development')
   if (mode === "development") {
     try {
       const { componentTagger } = await import("lovable-tagger");
       plugins.push(componentTagger());
     } catch {
-      console.warn("lovable-tagger not found — skipping dev plugin");
+      console.warn("⚠️ lovable-tagger not found — skipping dev plugin");
     }
   }
 
