@@ -26,13 +26,15 @@ const Privacy = () => {
                 When you connect your TikTok account to PulseTok, we collect the following information through TikTok Login Kit:
               </p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Display name</li>
-                <li>Username</li>
-                <li>Avatar URL</li>
-                <li>Open ID and Union ID</li>
-                <li>Profile statistics (follower count, following count, likes count, video count)</li>
-                <li>Profile information (if provided)</li>
+                <li><strong>Profile Information:</strong> Display name, username, avatar URL, profile deep link, verification status</li>
+                <li><strong>Account Statistics:</strong> Follower count, following count, total likes count, total video count</li>
+                <li><strong>Video Statistics:</strong> View counts, likes, comments, shares, and other engagement metrics for your videos</li>
+                <li><strong>Identifiers:</strong> Open ID and Union ID (unique identifiers for your TikTok account)</li>
+                <li><strong>Video Performance Data:</strong> Analytics and insights about your video performance over time</li>
               </ul>
+              <p className="mt-4">
+                This data is collected solely for the purpose of displaying your TikTok statistics and analytics within our Service.
+              </p>
 
               <h3 className="text-xl font-semibold mt-4 mb-2">2.2 Technical Information</h3>
               <p>
@@ -50,14 +52,17 @@ const Privacy = () => {
               <h2 className="text-2xl font-semibold mt-6 mb-4">3. How We Use Your Information</h2>
               <p>We use the collected information for the following purposes:</p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>To provide and maintain our Service</li>
-                <li>To authenticate your identity through TikTok</li>
-                <li>To display your TikTok profile information and statistics</li>
-                <li>To analyze and provide insights about your TikTok content</li>
-                <li>To improve and optimize our Service</li>
-                <li>To communicate with you about your account</li>
-                <li>To detect and prevent fraud or abuse</li>
+                <li><strong>To provide analytics and statistics:</strong> Display your TikTok video view counts, engagement metrics, and account statistics</li>
+                <li><strong>To authenticate your identity:</strong> Verify your identity through TikTok Login Kit</li>
+                <li><strong>To show your profile information:</strong> Display your TikTok profile (username, avatar, follower count, etc.)</li>
+                <li><strong>To provide video analytics:</strong> Show detailed statistics about your videos, including views, likes, comments, and shares</li>
+                <li><strong>To maintain the Service:</strong> Keep the platform running and provide you with access to your statistics</li>
+                <li><strong>To improve the Service:</strong> Analyze usage patterns to enhance user experience</li>
+                <li><strong>To ensure security:</strong> Detect and prevent fraud or abuse</li>
               </ul>
+              <p className="mt-4">
+                <strong>Important:</strong> We do NOT use your data to create content, post on your behalf, or share your information with third parties for marketing purposes. All data is used exclusively to display your TikTok statistics within our platform.
+              </p>
             </section>
 
             <section>
@@ -82,12 +87,29 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mt-6 mb-4">6. TikTok Data</h2>
+              <h2 className="text-2xl font-semibold mt-6 mb-4">6. TikTok Data and Video Statistics</h2>
               <p>
-                Your TikTok data is accessed through TikTok's official API in accordance with TikTok's terms of service and privacy policy. We only access data that you explicitly authorize through the TikTok Login Kit process.
+                Your TikTok data, including video statistics and analytics, is accessed through TikTok's official API in accordance with TikTok's terms of service and privacy policy. We only access data that you explicitly authorize through the TikTok Login Kit process.
               </p>
-              <p>
-                You can revoke our access to your TikTok data at any time through your TikTok account settings. When you revoke access, we will delete your associated data from our systems.
+              <p className="mt-4">
+                <strong>What we access:</strong>
+              </p>
+              <ul className="list-disc pl-6 space-y-2 mt-2">
+                <li>Your TikTok profile information (read-only)</li>
+                <li>Statistics about your videos (view counts, engagement metrics)</li>
+                <li>Account-level statistics (follower count, total likes, etc.)</li>
+              </ul>
+              <p className="mt-4">
+                <strong>What we do NOT access:</strong>
+              </p>
+              <ul className="list-disc pl-6 space-y-2 mt-2">
+                <li>We cannot post, edit, or delete your videos</li>
+                <li>We cannot access your private messages or comments</li>
+                <li>We cannot modify your account settings</li>
+                <li>We only read statistics - we do not create or modify content</li>
+              </ul>
+              <p className="mt-4">
+                You can revoke our access to your TikTok data at any time through your TikTok account settings. When you revoke access, we will delete your associated data from our systems, and you will no longer be able to view your statistics on our platform.
               </p>
             </section>
 
