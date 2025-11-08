@@ -2,14 +2,15 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-// https://vitejs.dev/config/
 export default defineConfig(async ({ mode }) => {
   const plugins = [react()];
 
   if (mode === "development") {
     try {
-      const { componentTagger } = await import("lovable-tagger");
-      plugins.push(componentTagger());
+      const mod = await import("lovable-tagger");
+      if (mod?.componentTagger) {
+        plugins.push(mod.componentTagger());
+      }
     } catch {
       console.warn("⚠️ lovable-tagger not found — skipping dev plugin");
     }
@@ -19,20 +20,11 @@ export default defineConfig(async ({ mode }) => {
     server: {
       host: "::",
       port: 5173,
-      proxy: {
-        "/api": {
-          target: "http://localhost:3001",
-          changeOrigin: true,
-          secure: false,
-        },
-      },
+      proxy: { "/api": { target: "http://localhost:3001", changeOrigin: true, secure: false } }
     },
     plugins,
-    resolve: {
-      alias: {
-        "@": path.resolve(__dirname, "./src"),
-      },
-    },
+    resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
     publicDir: "public",
+    build: { outDir: "dist" }
   };
 });
